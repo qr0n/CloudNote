@@ -3,12 +3,12 @@
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta property="og:site_name" content="4162">
-<meta property="og:title" content="Note!">
+<meta property="og:site_name" content="{{grade}} {{sub}}">
+<meta property="og:title" content="{{topic}}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="url">
 <meta property="og:image" content="">
-<meta property="og:description" content="Create and upload notes or other text and have them richly embedded!">
+<meta property="og:description" content="{{qo}}">
 <meta name="theme-color" content="#0000">
 <html lang="en">
 
@@ -38,7 +38,7 @@
 
 		.margin {
 			margin-top: auto;
-			margin-bottom: auto;
+			margin-bottom: auto;2
 			margin: 8%;
 		}
 
@@ -52,39 +52,36 @@
 	<title></title>
 </head>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">IronNote</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="#">{{sub}}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarScroll">
-      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/publish">Create</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/search">Search</a>
-        </li>
-      </ul>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Search Notes</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
     </div>
   </div>
 </nav>
 
-
-<!-- <div class="collapse" id="navbarToggleExternalContent">
-  <div class="bg-dark p-4">
-    <h5 class="text-white h4">Collapsed content</h5>
-    <span class="text-muted">Toggleable via the navbar brand.</span>
-  </div>
-</div>
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </div>
-</nav> -->
+<h3><code>{{qo}}</code></h3>
 
   </div>
     <!-- Optional JavaScript -->

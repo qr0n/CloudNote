@@ -3,11 +3,12 @@ import os
 import json
 
 url = "https://db.infinityiron.xyz/api/{}".format(os.environ['pkey'])
+pull_pack = "https://db.infinityiron.xyz/packages"
 
 class db:
   @staticmethod
-  def store(k,v):
-    r = httpx.get(f"{url}/store?key={k}&value={v}&file=notes")
+  def store(k, v, f):
+    r = httpx.get(f"{url}/store?key={k}&value={v}&file={f}")
     return r.text
   
   @staticmethod
@@ -31,9 +32,16 @@ class db:
     return r.text
 
   @staticmethod
-  def key_focus(k):
-    r = httpx.get(f"{url}/get?key={k}&file=notes")
+  def key_focus(k, f):
+    r = httpx.get(f"{url}/get?key={k}&file={f}")
     return r.text
+  
+  @staticmethod
+  def pull(package, app):
+    r = httpx.get(f"{pull_pack}?p={package}&app_id={app}")
+    with open(f"packages/{package}.py", "w") as E:
+      E.write(r.text)
+      return print(f"{package} has been added successfully!")
 
 class ldb:
   @staticmethod
@@ -58,3 +66,9 @@ class ldb:
       return ldb._unappend(f)[k]
     except KeyError:
       return "N"
+
+class render:
+  @staticmethod
+  def online():
+    with os.scandir('/home/runner/db/cdn') as i:
+      return [entry.name for entry in i]
